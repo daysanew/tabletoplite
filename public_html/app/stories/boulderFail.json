@@ -1,0 +1,41 @@
+{
+    "storyContent": "You spend the next several moments battered and dazed laying in a pile of rubble. Slowly, with a strange ringing in your ears, you stumble out of the ruined inn and into the street. The ringing in your ears subside, but is replaced with the sound of combat. All around you building are on fire, people are fleeing and groups of orcs and goblins pillage with only a few pockets of the city guard offering any resistance. It does take long for a small group of 3 goblins to notice you. They raise their crude, rusty spears, issue a high pitched war cry and charge towards you.",
+    "modifier": -2,
+    "storyChoices": [{
+            "name": "You pickup a near by sword, swing it a few times to get it's balance then charge the goblins head on. (STR)",
+            "roll": {
+                "skill": "Str",
+                "target": 10,
+                "success": "You cut off the war cry of the first goblin with a quick thrust of your sword, then quickly parry a thrust from the second  while smashing your boot into the face of the third goblin with a well aimed kick. You turn back to the second goblin, batter aside another spear thrust and dispatch the goblin with ease. You turn to the third goblin only to see if fleeing down the street.",
+                "fail": "You manage to score a killing blow on the first goblin, then barely block a spear thrust from the second. The third goblin thrust his spear towards your belly, but you are able to turn in time taking the blow on the ribs. The spear slides along your ribs, tearing flesh and causing searing pain. You push the second goblin back and lash out with a quick kick to the third, but it jumps back right before impact. Injured you back up, keeping both goblins at bay with your sword."
+            },
+            "conditions": [{
+                    "class": "fighter"
+                }]
+        },
+        {
+            "name": "You bring several combat spells to mind and prepare to bring magical destruction down on the goblins. (INT)",
+            "roll": {
+                "skill": "Int",
+                "target": 10,
+                "success": "From you left hand you let fly a wall of force to unbalances the goblins, confusing them and stopping their advance. With your right hand you let out a barrage of force bolts. Two of them slam into the first goblin, one in the chest, the other in the head. It goes down without a sound. The third bolt slams into the stomach of the second goblin. It goes down shrieking while blood gushes from it's wounds. Before you can cast another spell, the third goblin turns and flees down the street.",
+                "fail": "From you left hand you let fly a wall of force to unbalances the goblins, confusing them and stopping their advance. With your right hand you let out a barrage of force bolts. The second goblin manages to pull the first goblin in front of it at the last second so all three bolts slams into. The third goblin charges forward, spear held in front of it. You prepare to unleash a wave of fire, but the second goblin's spear slams into your right shoulder, causing the spell to fizzle. You desperating try to draw the dagger with your good hand and barely block the thrust of the third goblin. You score a hit on the goblin with your dagger, leaving a deep gash on it's left arm. You backup slowly trying to keep the goblins at bay with your dagger."
+            },
+            "conditions": [{
+                    "class": "wizard"
+                }]
+        },
+        {
+            "name": "You are out numbered and was never a very good fighter. So you take the only option available, you flee. (DEX)",
+            "roll": {
+                "skill": "Dex",
+                "target": 10,
+                "success": "Unashamed you turn and flee. You quickly out distance the goblins and lose sight of them as you turn a corner.",
+                "fail": "You turn to flee but trip over a piece of rubble. As you hit the ground you manage to roll over and draw your dagger as the first goblin attacks. You roll out of the way of the spear thrust and thrust your dagger deep into it's belly. It shrieks and jerks away, tearing the dagger from your hand, before collapsing on the ground. You manage to grab a rock and throw it at the second charging goblin, scoring a glancing blow. Wear the remaining two goblins circle you, spears held out."
+            }
+        }],
+    "choiceBranches": {
+        "success": ["boulderFail", "boulderFail", "boulderFail"],
+        "fail": []
+    }
+}

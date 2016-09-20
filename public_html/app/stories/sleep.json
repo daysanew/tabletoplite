@@ -1,0 +1,9 @@
+{
+    "storyContent": "Muttering to yourself you turn over in your bed and try to fall back to sleep. A few seconds later the room is filled with the sound of splintering wood and shattering glass, followed by a great crashing sound.",
+    "storyChoices": [{
+            "name": "Before you can react the room starts to collapse and you feel yourself falling..."
+        }],
+    "choiceBranches": {
+        "success": ["boulderFail"]
+    }
+}

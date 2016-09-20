@@ -1,0 +1,34 @@
+<div>
+    <p><input type='button' value = 'Roll stats' ng-click='$ctrl.rollForAllStats()' /></p>
+    
+    Rolls:
+    <div ng-repeat="n in $ctrl.rolls track by $index">
+        <div class="btn btn-primary" data-drag="true" data-jqyoui-options="{revert: 'invalid'}" 
+             ng-model="n" jqyoui-draggable="{animate:true}" ng-hide="!n">{{n}}</div>
+    </div> 
+    <!--    <div class="btn btn-primary" data-drag="true" data-jqyoui-options="{revert: 'invalid'}" 
+             ng-model="$ctrl.stat[0]" jqyoui-draggable="{animate:true}">$ctrl.stat[0]</div>
+        <div class="btn btn-primary" data-drag="true" data-jqyoui-options="{revert: 'invalid'}" 
+             ng-model="$ctrl.stat[0]" jqyoui-draggable="{animate:true}">$ctrl.rollOne</div>
+        <div class="btn btn-primary" data-drag="true" data-jqyoui-options="{revert: 'invalid'}" 
+             ng-model="$ctrl.stat[0]" jqyoui-draggable="{animate:true}">$ctrl.rollOne</div>
+        <div class="btn btn-primary" data-drag="true" data-jqyoui-options="{revert: 'invalid'}" 
+             ng-model="$ctrl.stat[0]" jqyoui-draggable="{animate:true}">$ctrl.rollOne</div>
+        <div class="btn btn-primary" data-drag="true" data-jqyoui-options="{revert: 'invalid'}" 
+             ng-model="$ctrl.stat[0]" jqyoui-draggable="{animate:true}">$ctrl.rollOne</div>-->
+    <p>Stats:</p>
+    Strength: <div class="thumbnail" data-drop="true" data-jqyoui-options ng-model="$ctrl.self['str']" jqyoui-droppable style='height:50px;'>
+  <div class="btn btn-success" data-drag="false" data-jqyoui-options ng-model="$ctrl.self['str']" jqyoui-draggable ng-hide="$ctrl.self['str']===0">{{$ctrl.self['str']}}</div>
+</div>
+    
+    <p>Dexterity: {{$ctrl.dex}}</p>
+    <p>Constitution: {{$ctrl.con}}</p>
+    <p>Intelligence: {{$ctrl.int}}</p>
+    <p>Wisdom: {{$ctrl.wis}}</p>
+    <p>Charisma: {{$ctrl.char}}</p>
+</div>
+<script>
+    function test(a, b, c, d, e){
+        $ctrl.test();   
+    }
+    </script>

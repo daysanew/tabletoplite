@@ -1,0 +1,25 @@
+<div class='story-content'>
+<div class='row'>
+    <div class='col-sm-4'>
+        <p>Name:</p> 
+        {{$ctrl.character.name}}
+    </div>
+    <div class='col-sm-4'>
+        <p>Class:</p> 
+        {{$ctrl.character.class.Name}}
+    </div>
+    <div class='col-sm-4'>
+        <p>Race:</p> 
+        {{$ctrl.character.race.Name}}
+    </div>
+</div>
+<br/>
+<div class='row'>
+    <div class='col-sm-1'>Stats:</div>
+    <div class='col-sm-1' ng-repeat='(key, value) in $ctrl.character.stats'>
+        <p>{{key}}:</p> 
+        {{value}}
+    </div>
+</div>
+</div>
+

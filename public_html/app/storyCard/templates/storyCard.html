@@ -1,0 +1,17 @@
+<div id="storyCard" class="story-content">
+    <div>
+        <pre>{{$ctrl.story.storyContent}}</pre>
+    </div>
+    <div class="choicesText">
+        <div ng-repeat="item in $ctrl.story.storyChoices" >
+            <a href="" ng-click="$ctrl.userChoice = item.name; $ctrl.userChoiceIndex = $index" ng-if='typeof(item) !== "undefined"'>{{item.name}}</a>
+        </div>       
+    </div>
+    Current Choice:
+    <div class="currentChoice">
+        <a href="#" data-editable-textarea="$ctrl.userChoice" data-e-rows="7" data-e-cols="40">
+            <pre>{{ $ctrl.userChoice}}</pre>
+        </a>
+    </div>
+    <input class="btn btn-success actionBtn btn-lg" type="button" ng-click="$ctrl.processChoice()" value="Take Action"> 
+</div>

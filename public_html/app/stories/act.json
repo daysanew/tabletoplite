@@ -1,0 +1,44 @@
+{
+    "storyContent": "You get out of bed and look out the window. You gasp in surprise as you see smoke billowing from distant fires. Opening the window you can hear alarm bells clanging distance. Down the street, barley visible, you spy a group of city guards under attack from what looks like orcs. As you watch you see a huge boulder, thrown from a distant catapult, come crashing down into a nearby building. After a few seconds the building collapses in on itself. You see more boulders raining down on the city, some even exploding on impact from magical enchantment.\nLooking up you see one of the boulders flying towards the inn… (-2 story modifier)",
+    "storyChoices": [
+        {
+            "name": "You scramble away from the window and out of the room (DEX)",
+            "roll":
+                    {
+                        "skill": "Dex",
+                        "target": 15,
+                        "success": "You crash through the door to your room and scramble down the stairs and out of the inn.",
+                        "fail": "You try to scramble out of your room, but trip and fall as you exit your room."
+                    }
+        },
+        {
+            "name": "You use your magic to slow the boulder long enough to escape the room (INT)",
+            "roll":
+                    {
+                        "skill": "Int",
+                        "target": 10,
+                        "success": "You throw out your hands releasing a quick burst of magical energy and window glass. Your magic collides with the boulder, slowing it's decent enough that you are able to escape the room.",
+                        "fail": "You throw out your hands hoping to release a quick burst of magical energy, but the combination stress and and the limited time you had to cast the spell causes your magic to fizzle. It manages to break the glass in the window, but little else."
+                    },
+            "conditions": [{
+                    "class": "wizard"
+                }]
+        },
+        {
+            "name": "You jump out the window, attempting to grab the ledge and drop safely to the ground. If worst comes to worst, a 2 story fall is better then being hit by a 2 ton boulder. (STR))",
+            "roll":
+                    {
+                        "skill": "Str",
+                        "target": 10,
+                        "success": "Trying not to think about what you doing, you climb out the window, grasping the ledge and letting yourself dangle over the edge for just a moment before dropping to the ground.",
+                        "fail": "Trying not to think about what you doing, you climb out the window, grasping the ledge and letting yourself dangle over the edge for just a moment. Before you can let go and drop to the ground, the boulder crashes into the inn."
+                    },
+            "conditions": [{
+                    "class": "fighter"
+                }]
+        }],
+    "choiceBranches": {
+        "success": ["act", "act", "act"],
+        "fail": ["boulderFail", "boulderFail", "boulderFail"]
+    }
+}

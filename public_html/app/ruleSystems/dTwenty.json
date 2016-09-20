@@ -1,0 +1,36 @@
+{
+    "Classes": [
+        {
+            "Name": "Fighter",
+            "HitDice": 10
+        },
+        {
+            "Name": "Wizard",
+            "HitDice": 6
+        }
+    ],
+    "Races": [{
+            "Name": "Human",
+            "Bonuses": {
+                "Str": 1,
+                "Dex": 1,
+                "Con": 1,
+                "Int": 1,
+                "Wis": 1,
+                "Cha": 1
+            }
+        },
+        {
+            "Name": "Dwarf",
+            "Bonuses": {
+                "Str": 2,
+                "Dex": 0,
+                "Con": 0,
+                "Int": 0,
+                "Wis": 0,
+                "Cha": 0
+            }
+        }
+
+    ]
+}

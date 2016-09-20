@@ -1,0 +1,14 @@
+{
+    "storyContent": "After many weeks of traveling as a guard with a merchant’s caravan you arrive at the frontier city West Gate late in the night. After renting a room at a nearby inn for the night, you gratefully collapse into your bed, looking forward to several days off. \nEarly in the morning you are rouse from sleep by a commotion outside.",
+    "storyChoices": [
+        {
+            "name": "You go back to sleep. It’s your day off and you are determined to sleep in."
+        },
+        {
+            "name": "Investigate what is causing the commotion. "
+        }
+    ],
+    "choiceBranches": {
+        "success": ["sleep", "act"]
+    }
+}

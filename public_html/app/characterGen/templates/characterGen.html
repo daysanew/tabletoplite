@@ -1,0 +1,67 @@
+<div class="parentContainer">
+    <div class="row top-buffer">
+        <div class="col-sm-4">
+            <input class='fullWidth' type='text' placeholder='Character name' ng-model='$ctrl.name' />
+        </div>
+    </div>
+    <div class="row top-buffer">
+        <div class="col-sm-1">Race:</div>  
+        <div class="col-sm-3">
+            <select class="fullWidth" ng-options="option.Name for option in $ctrl.ruleSystem.Races"
+                    ng-model="$ctrl.race">
+                <option value='' disabled>- Please Choose a Race -</option>
+            </select>
+        </div>
+    </div>
+    <div class="row top-buffer">
+        <div class="col-sm-1">Class:</div>
+        <div class="col-sm-3">
+            <select class='fullWidth' ng-options="option.Name for option in $ctrl.ruleSystem.Classes"
+                    ng-model="$ctrl.class">
+                <option value='' disabled>- Please Choose a Class -</option>
+            </select>
+        </div>
+    </div>
+    <div class="row top-buffer">
+        <div class="col-sm-2">
+            <input type='button' class="btn btn-primary fullWidth btn-lg {{$ctrl.buttonClass}}" value = 'Roll stats' ng-click='$ctrl.rollForAllStats()' />
+        </div>
+    </div>
+    <div class="row top-buffer">
+        <div class="col-sm-1">
+            Rolls:
+        </div>
+        <div ng-repeat="n in $ctrl.rolls track by $index" class="col-sm-1">
+            <span class="btn btn-primary" data-drag="true" data-jqyoui-options="{revert: 'invalid'}" 
+                  ng-model="n" jqyoui-draggable="{animate:false}" ng-hide="!n">{{n}}</span>
+        </div> 
+    </div>
+    <div class="row top-buffer">
+        <div class="col-sm-1">
+            Stats:
+        </div>
+    </div>
+    <div ng-repeat="n in $ctrl.statKeys" class="row top-buffer">
+        <div class="col-sm-1">{{n}}:</div> 
+        <div class="col-sm-1">
+            <div class="thumbnail dropable" data-drop="true" data-jqyoui-options ng-model="$ctrl.stats[n]" jqyoui-droppable>
+                <div style='margin: 0 auto' class="btn btn-success" data-drag="false" data-jqyoui-options ng-model="$ctrl.stats[n]" jqyoui-draggable ng-hide="!$ctrl.stats[n]">{{$ctrl.stats[n]}}</div>
+            </div> 
+        </div>
+        <div class="col-sm-2">Race Bonus: {{$ctrl.race.Bonuses[n]}}</div>
+        <br/>
+    </div>
+    <div class="row top-buffer">
+        <div class="col-sm-2">
+            <input type='button' class='btn btn-primary btn-lg fullWidth' value='Save character' ng-click='$ctrl.saveCharacter()' />
+        </div>
+    </div>
+</div>
+<!--<hr/>
+Stats: {{$ctrl.stats}}
+<br/>
+Class: {{$ctrl.class}}
+<br/>
+Race: {{$ctrl.race}}
+<br/>
+Character {{$ctrl.character}}-->
