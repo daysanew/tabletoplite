@@ -1,7 +1,7 @@
 angular.module('storyCard')
         .factory('Character', ['$resource',
                 function ($resource) {
-                return $resource('http://localhost:3000/character/', {}, {
+                return $resource('http://localhost:3000/character/:name', {}, {
                     query: {
                         method: 'GET',
                         params: {storyId: 'stories'},
@@ -10,16 +10,4 @@ angular.module('storyCard')
                     update: {method: "POST"}
                 });
             }
-//            function () {
-//                var character = {};
-//                return {
-//                    GetCharacter: function () {
-//                        return character;
-//                    },
-//                    SetCharacter: function (newCharacter) {
-//                        character = newCharacter;
-//                    }
-//                };
-//            }
-
         ]);

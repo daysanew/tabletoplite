@@ -1,7 +1,7 @@
 angular.module('storyCard').component('storyCard', {
     templateUrl: './app/storyCard/templates/storyCard.html',
-    controller: ['Story', 'StoryHistory', 'Character', 'RuleSystem',
-        function StoryCardController(Story, StoryHistory, Character, RuleSystem) {
+    controller: ['Story', 'StoryHistory', 'Character', 'CharacterFactory', 'RuleSystem',
+        function StoryCardController(Story, StoryHistory, Character, CharacterFactory, RuleSystem) {
             var self = this;
             var character = {};
             loadInitialValues();
@@ -40,7 +40,7 @@ angular.module('storyCard').component('storyCard', {
             };
 
             function loadInitialValues() {
-                character = Character.GetCharacter();
+                character = CharacterFactory.GetCharacter();
                 self.userChoice = '';
                 self.userChoiceIndex = -1;
                 self.story = getStoryById('intro');

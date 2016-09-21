@@ -1,7 +1,7 @@
 angular.module('storyCard').component('characterGen', {
     templateUrl: './app/characterGen/templates/characterGen.html',
-    controller: ['RuleSystem', 'Character', '$window',
-        function StoryCardController(RuleSystem, Character, $window) {
+    controller: ['RuleSystem', 'Character', 'CharacterFactory', '$window',
+        function StoryCardController(RuleSystem, Character, CharacterFactory, $window) {
             var self = this;
 
             self.ruleSystem = RuleSystem.get({systemId: 'dTwenty'});
@@ -23,7 +23,7 @@ angular.module('storyCard').component('characterGen', {
             self.saveCharacter = function () {
                 addBonusStats();
                 var character = {name: self.name, stats: self.stats, race: self.race, class: self.class};
-                //Character.SetCharacter(character);
+                CharacterFactory.SetCharacter(character);
 
                 var dbSave = new Character(character);
                 dbSave.$update();

@@ -1,5 +1,5 @@
 angular.module('storyCard')
-        .factory('Character', ['$resource',
+        .factory('CharacterFactory', ['$resource',
             function () {
                 var character = {};
                 return {
