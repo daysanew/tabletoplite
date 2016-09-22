@@ -32,7 +32,7 @@ angular.module('storyCard').component('storyCard', {
                 newStoryId = storyBranches[choiceIndex];
                 self.story = getStoryById(newStoryId);
                 self.story.$promise.then(function (result) {
-                    self.story = result;
+                    self.story = angular.fromJson(result.story);
                     removeStoryChoices();
                 });
                 self.userChoice = '';
@@ -43,9 +43,9 @@ angular.module('storyCard').component('storyCard', {
                 character = CharacterFactory.GetCharacter();
                 self.userChoice = '';
                 self.userChoiceIndex = -1;
-                self.story = getStoryById('intro');
+                self.story = getStoryById(1);
                 self.story.$promise.then(function (result) {
-                    self.story = result;
+                    self.story = angular.fromJson(result.story);
                     removeStoryChoices();
                 });
             }
