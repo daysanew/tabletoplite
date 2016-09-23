@@ -1,7 +1,7 @@
 angular.module('storyCard').component('storyCard', {
     templateUrl: './app/storyCard/templates/storyCard.html',
-    controller: ['Story', 'StoryHistory', 'Character', 'CharacterFactory', 'RuleSystem',
-        function StoryCardController(Story, StoryHistory, Character, CharacterFactory, RuleSystem) {
+    controller: ['Story', 'Character', 'CharacterFactory', 'RuleSystem', 'StoryHistoryFactory',
+        function StoryCardController(Story, Character, CharacterFactory, RuleSystem, StoryHistoryFactory) {
             var self = this;
             var character = {};
             loadInitialValues();
@@ -11,18 +11,18 @@ angular.module('storyCard').component('storyCard', {
                 var newStoryId = '';
                 var rollObject = self.story.storyChoices[choiceIndex].roll;
 
-                StoryHistory.story += self.story.storyContent +
-                        '\n' + self.userChoice + '\n';
+                StoryHistoryFactory.AddToStoryHistory(self.story.storyContent +
+                        '\n' + self.userChoice + '\n');
 
                 var storyBranches = self.story.choiceBranches.success;
                 if (rollObject) {
                     rollDice(rollObject);
                     recordRoll(rollObject);
                     if (rollObject.rollSucceeded && rollObject.success) {
-                        StoryHistory.story += rollObject.success + '\n';
+                        StoryHistoryFactory.AddToStoryHistory(rollObject.success + '\n');
 
                     } else if (rollObject.fail) {
-                        StoryHistory.story += rollObject.fail + '\n';
+                        StoryHistoryFactory.AddToStoryHistory(rollObject.fail + '\n');
                         if (self.story.choiceBranches.fail) {
                             storyBranches = self.story.choiceBranches.fail;
                         }
@@ -64,8 +64,8 @@ angular.module('storyCard').component('storyCard', {
                             }
                         });
                     }
-                    
-                    if(!hasChoice){
+
+                    if (!hasChoice) {
                         self.story.storyChoices[i] = undefined;
                     }
                 }
@@ -91,8 +91,8 @@ angular.module('storyCard').component('storyCard', {
             }
 
             function recordRoll(rollObject) {
-                StoryHistory.story += 'Roll result: ' + rollObject.rollValue;
-                StoryHistory.story += ' Target: ' + rollObject.target + '\n';
+                StoryHistoryFactory.AddToStoryHistory('Roll result: ' + rollObject.rollValue);
+                StoryHistoryFactory.AddToStoryHistory(' Target: ' + rollObject.target + '\n');
             }
             function rollDice(roll) {
                 var storyModifier = 0;
@@ -102,7 +102,7 @@ angular.module('storyCard').component('storyCard', {
                 console.log(storyModifier);
                 var modifier = getModifier(character.stats[roll.skill]);
                 var playerRoll = rollDTwenty() + modifier + storyModifier;
-                if(playerRoll < 1){
+                if (playerRoll < 1) {
                     playerRoll = 1;
                 }
 

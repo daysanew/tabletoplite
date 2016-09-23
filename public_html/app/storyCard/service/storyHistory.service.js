@@ -1,6 +1,8 @@
 angular.module('storyCard')
-        .factory('StoryHistory',
-            function () {
-                return {story: 'This is the start of a story....\n'};
+        .factory('StoryHistory', ['$resource',
+            function ($resource) {
+                return $resource('http://localhost:3000/storyHistory/:adventureId', {}, {
+                    update: {method: "POST"}
+                });
             }
-       );
+        ]);
