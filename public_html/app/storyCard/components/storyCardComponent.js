@@ -30,8 +30,10 @@ angular.module('storyCard').component('storyCard', {
                 }
 
                 newStoryId = storyBranches[choiceIndex];
-                self.story = getStoryById(newStoryId);
-                self.story.$promise.then(function (result) {
+
+                var newStory = getStoryById(newStoryId, true);
+
+                newStory.$promise.then(function (result) {
                     self.story = angular.fromJson(result.story);
                     removeStoryChoices();
                 });
@@ -86,8 +88,11 @@ angular.module('storyCard').component('storyCard', {
 
                 return hasChoice;
             }
-            function getStoryById(storyId) {
-                return Story.get({storyId: storyId});
+            function getStoryById(storyId, turn) {
+                if (!turn) {
+                    turn = false;
+                }
+                return Story.get({storyId: storyId, adventureId: 1, characterId: character.id, turn: turn});
             }
 
             function recordRoll(rollObject) {

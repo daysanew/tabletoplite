@@ -1,7 +1,7 @@
 angular.module('storyCard')
         .factory('StoryHistoryFactory', ['StoryHistory',
             function (StoryHistory) {
-                var storyHistory = {storyHistory: '', id: ''};
+                var storyHistory = {storyHistory: '', id: '', adventureId: ''};
                 return {
                     GetStoryHistory: function () {
                         return storyHistory;
@@ -16,7 +16,7 @@ angular.module('storyCard')
                             storyHistory = result;
                             callback(storyHistory);
                         });
-                    },
+                    }
                 };
             }
         ]);

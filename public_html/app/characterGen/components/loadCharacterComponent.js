@@ -10,6 +10,8 @@ angular.module('storyCard').component('loadCharacter', {
 
                 character.$promise.then(function (result) {
                     character = angular.fromJson(result.character);
+                    character.id = result.id;
+                    
                     CharacterFactory.SetCharacter(character);
                     $window.location.href = '#story';
                 });
