@@ -1,10 +1,30 @@
 {
-    "name": "",
-    "stories":[{
-            "name" : "",
-            "storyHistory": [{}]
-        }],
-    "characters":[{
-            "name": ""
-        }]
+    "Adventures" : {
+         "AdventureKey" : {
+             "Name": "Adventure One",
+             "Decription" : "A really cool adventure",
+             "Stories" : {
+                 "StoryKey1": true
+             },
+             "Characters" : {
+                 "characterKey1": true
+             }
+         }
+    },
+    "Stories": {
+        "StoryKey1": "This is a story"
+    },
+    "Characters" : {
+        "characterKey1" : {
+            "Name": "Torik",
+            "Stats": {
+                "Str": 1,
+                "Dex": 1,
+                "Con": 1,
+                "Wis": 1
+            },
+            "Race": "Human",
+            "Class": "Wizard"
+        }
+    }
 }
